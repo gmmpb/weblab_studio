@@ -104,7 +104,8 @@ export default function Form({ textContent }: FormProps) {
 
     setIsSubmitting(true);
     console.log("Form submitted", formData);
-    // await sendMail({ ...formData });
+    const mailresponse=await sendMail({ ...formData });
+    console.log(mailresponse);
     setFormData(initialData);
     localStorage.setItem("formSubmitted", "true");
     setIsSubmitted(true);
