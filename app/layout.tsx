@@ -27,7 +27,7 @@ export default function RootLayout({
       <body
         className={`${inter} font-inter antialiased bg-black text-slate-100 tracking-tight`}
       >
-        <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
+        <div className="flex flex-col min-h-screen   overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Particles className="absolute inset-0 -z-10 fade-in" />
           <div
             className="absolute inset-0 -z-10  rounded-b-[3rem] pointer-events-none overflow-hidden"
