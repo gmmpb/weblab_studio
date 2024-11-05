@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./css/style.css";
+import Nav from "./components/UI/Nav";
+
+import dynamic from "next/dynamic";
+
+const Particles = dynamic(() => import("./components/UI/Particles"), {
+  ssr: true, // This ensures the component is only rendered on the client side
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +23,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="scroll-smooth dark">
+      <body
+        className={`${inter} font-inter antialiased bg-slate-900 text-slate-100 tracking-tight`}
+      >
+        <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
+          <Particles className="absolute inset-0 -z-10 fade-in" />
+          {/* Illustration */}
+          <div
+            className="absolute inset-0 -z-10  rounded-b-[3rem] pointer-events-none overflow-hidden"
+            aria-hidden="true"
+          >
+            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 -z-10">
+              {/* <Image
+              src={Illustration}
+              className="max-w-none"
+              width={2146}
+              priority
+              alt="Hero Illustration"
+            /> */}
+              <div className="purple-glow fade-in "></div>
+            </div>
+          </div>
+          {children}
+          <Nav />
+        </div>
+      </body>
     </html>
   );
 }
