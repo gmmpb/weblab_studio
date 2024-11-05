@@ -5,57 +5,86 @@ import sanitizeHtml from "sanitize-html";
 
 function generateEmailTemplate(data: any) {
   return `
-    <html>
-      <head>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-          }
-          .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          }
-          .header {
-            background-color: #4CAF50;
-            color: #ffffff;
-            padding: 10px 0;
-            text-align: center;
-          }
-          .content {
-            margin: 20px 0;
-          }
-          .footer {
-            text-align: center;
-            color: #888888;
-            font-size: 12px;
-            margin-top: 20px;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h1>Árajánlatkérés</h1>
-          </div>
-          <div class="content">
-            <p><strong>Név:</strong> ${data.name}</p>
-            <p><strong>Email:</strong> ${data.email}</p>
-            <p><strong>Telefon:</strong> ${data.phone}</p>
-            <p><strong>Üzenet:</strong> ${data.message}</p>
-          </div>
-          <div class="footer">
-            <p>Köszönjük az üzenetet!</p>
-          </div>
-        </div>
-      </body>
-    </html>
+   <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Árajánlatkérés</title>
+    <style>
+      .hatterszin {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(
+          circle at center,
+          #0c2912,
+          #0cb406,
+          #243e24
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #ffffff;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .header {
+        background: linear-gradient(135deg, #07330a, #31d331);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .content {
+        padding: 30px 20px;
+        color: #dcdcdc;
+      }
+      .content p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .content p:last-child {
+        margin-bottom: 0;
+      }
+      .footer {
+        background: linear-gradient(135deg, #07330a, #31d331);
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hatterszin">
+    <div class="container">
+      <div class="header">
+        <h1>Árajánlatkérés</h1>
+      </div>
+      <div class="content">
+        <p>
+          Árajánlatkérő Üzenet!
+        </p>
+        <p><strong>Név:</strong> ${data.name}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Telefon:</strong> ${data.phone}</p>
+        <p><strong>Üzenet:</strong> ${data.message}</p>
+      </div>
+      <div class="footer">
+        <p>Üdvözlettel,<br /><strong>Weblab Studio</strong></p>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
   `;
 }
 function generateThankYouEmailTemplate(data: any) {
@@ -63,53 +92,76 @@ function generateThankYouEmailTemplate(data: any) {
     <html>
       <head>
         <style>
-          body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-          }
-          .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          }
-          .header {
-            background-color: #4CAF50;
-            color: #ffffff;
-            padding: 10px 0;
-            text-align: center;
-          }
-          .content {
-            margin: 20px 0;
-          }
-          .footer {
-            text-align: center;
-            color: #888888;
-            font-size: 12px;
-            margin-top: 20px;
-          }
-        </style>
+      .hatterszin {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(
+          circle at center,
+          #0c2912,
+          #0cb406,
+          #243e24
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #ffffff;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .header {
+        background: linear-gradient(135deg, #07330a, #31d331);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .content {
+        padding: 30px 20px;
+        color: #dcdcdc;
+      }
+      .content p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .content p:last-child {
+        margin-bottom: 0;
+      }
+      .footer {
+        background: linear-gradient(135deg, #07330a, #31d331);
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #ffffff;
+      }
+    </style>
       </head>
       <body>
+      <div class="hatterszin">
         <div class="container">
           <div class="header">
             <h1>Köszönjük, hogy kapcsolatba lépett velünk!</h1>
           </div>
           <div class="content">
             <p>Kedves ${data.name},</p>
-            <p>Köszönjük, hogy felvette velünk a kapcsolatot! Az üzenetét megkaptuk, és rövidesen válaszolunk.</p>
+            <p>Köszönjük, hogy felvette velünk a kapcsolatot! Az üzenetét megkaptuk, hamarosan felvesszük Önnel a kapcsolatot.</p>
             <p>Az ön adatai:</p>
             <p><strong>Email:</strong> ${data.email}</p>
             <p><strong>Telefon:</strong> ${data.phone}</p>
             <p><strong>Üzenet:</strong> ${data.message}</p>
           </div>
           <div class="footer">
-            <p>Üdvözlettel,<br>WeblabStudio</p>
+            <p>Üdvözlettel,<br>Weblab Studio</p>
           </div>
+        </div>
         </div>
       </body>
     </html>
@@ -183,7 +235,7 @@ async function sendMail(formData: any) {
   });
   const info = await transporter.sendMail({
     from: process.env.EMAIL_USER, // sender address
-    to: "pnorbert88@gmail.com",
+    to: "hello@weblabstudio.hu",
     subject: "Árajánlatkérés", // Subject line
     text: `Név: ${sanitizedData.name}, Email: ${sanitizedData.email}, Telefon: ${sanitizedData.phone}, Üzenet: ${sanitizedData.message}`, // plain text body
     html: htmlContent, // HTML body
