@@ -29,7 +29,6 @@ export default function RootLayout({
       >
         <div className="flex flex-col min-h-screen overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Particles className="absolute inset-0 -z-10 fade-in" />
-          {/* Illustration */}
           <div
             className="absolute inset-0 -z-10  rounded-b-[3rem] pointer-events-none overflow-hidden"
             aria-hidden="true"
