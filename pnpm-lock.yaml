@@ -63,6 +63,9 @@ importers:
       '@types/sanitize-html':
         specifier: ^2.11.0
         version: 2.11.0
+      '@types/sentiment':
+        specifier: ^5.0.4
+        version: 5.0.4
       eslint:
         specifier: ^8
         version: 8.57.0
@@ -321,6 +324,9 @@ packages:
 
   '@types/seedrandom@2.4.34':
     resolution: {integrity: sha512-ytDiArvrn/3Xk6/vtylys5tlY6eo7Ane0hvcx++TKo6RxQXuVfW0AF/oeWqAj9dN29SyhtawuXstgmPlwNcv/A==}
+
+  '@types/sentiment@5.0.4':
+    resolution: {integrity: sha512-6FL0CYijhnrR3gHbu7boAJn8zRCekJXBPfIHLkIgWbkY+hz5Dwfsq79FM7l/tLZKuEgQWktnzf6JqV2UCWKrbg==}
 
   '@typescript-eslint/parser@7.2.0':
     resolution: {integrity: sha512-5FKsVcHTk6TafQKQbuIVkXq58Fnbkd2wDL4LB7AURN7RUOu1utVP+G8+6u3ZhEroW3DF6hyo3ZEXxgKgp4KeCg==}
@@ -2050,6 +2056,8 @@ snapshots:
       htmlparser2: 8.0.2
 
   '@types/seedrandom@2.4.34': {}
+
+  '@types/sentiment@5.0.4': {}
 
   '@typescript-eslint/parser@7.2.0(eslint@8.57.0)(typescript@5.5.4)':
     dependencies:
