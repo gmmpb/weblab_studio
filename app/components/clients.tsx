@@ -10,6 +10,11 @@ import Client06 from "@/public/images/client-06.svg";
 import Client07 from "@/public/images/client-07.svg";
 import Client08 from "@/public/images/client-08.svg";
 import Client09 from "@/public/images/client-09.svg";
+import Client10 from "@/public/images/client-10.svg";
+import Client11 from "@/public/images/client-11.svg";
+import Client12 from "@/public/images/client-12.svg";
+import Client13 from "@/public/images/client-13.svg";
+import Client14 from "@/public/images/client-14.svg";
 
 const logos = [
   { src: Client01, alt: "Client 01" },
@@ -21,6 +26,11 @@ const logos = [
   { src: Client07, alt: "Client 07" },
   { src: Client08, alt: "Client 08" },
   { src: Client09, alt: "Client 09" },
+  { src: Client10, alt: "Client 10" },
+  { src: Client11, alt: "Client 11" },
+  { src: Client12, alt: "Client 12" },
+  { src: Client13, alt: "Client 13" },
+  { src: Client14, alt: "Client 14" },
 ];
 
 export default function Clients() {
