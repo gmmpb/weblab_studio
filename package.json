@@ -2,13 +2,16 @@
   "name": "wls",
   "version": "0.1.0",
   "private": true,
+  "config": {
+    "unsafe-perm": true
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prebuild": "npm install patch-package",
-    "postinstall": "patch-package",
+    "postinstall": "cd ../.. && npx patch-package --reverse && npx patch-package --error-on-fail",
     "vercel-build": "npm install patch-package && npm install && npm run build"
   },
   "dependencies": {
