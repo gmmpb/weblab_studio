@@ -128,7 +128,7 @@ export default function FaceMesh() {
 
     const video = document.createElement("video");
     Object.assign(video, dimensions, { autoplay: true });
-    videoRef.current = video;
+    videoRef.current!.srcObject = video.srcObject;
 
     navigator.mediaDevices
       .getUserMedia({
@@ -163,7 +163,9 @@ export default function FaceMesh() {
     startCamera();
     return () => {
       if (videoRef.current?.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach((track) => track.stop());
+        (videoRef.current.srcObject as MediaStream)
+          .getTracks()
+          .forEach((track) => track.stop());
       }
     };
   }, [startCamera]);
