@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "if [ \"$NODE_ENV\" != \"production\" ]; then patch-package; fi"
+    "postinstall": "if [ \"$NODE_ENV\" != \"production\" ]; then patch-package; fi",
+    "prebuild": "npm install patch-package",
+    "vercel-build": "npm install && npm run build"
   },
   "dependencies": {
     "@tensorflow-models/depth-estimation": "^0.0.4",
