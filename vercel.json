@@ -1,15 +1,10 @@
 {
-  "build": {
-    "env": {
-      "NODE_ENV": "production"
-    }
-  },
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/node",
       "config": {
-        "installCommand": "pnpm install",
+        "installCommand": "pnpm install patch-package && pnpm install",
         "buildCommand": "pnpm run build"
       }
     }
