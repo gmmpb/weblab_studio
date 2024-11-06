@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Árajánlatkérés</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(
+          circle at center,
+          #014301,
+          #0d4e0d,
+          #3c873c
+        );
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #ffffff;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .header {
+        background: linear-gradient(135deg, #71a271, #059b05);
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+      .content {
+        padding: 30px 20px;
+        color: #dcdcdc;
+      }
+      .content p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .content p:last-child {
+        margin-bottom: 0;
+      }
+      .footer {
+        background: linear-gradient(135deg, #71a271, #059b05);
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Árajánlatkérés</h1>
+      </div>
+      <div class="content">
+        <p>Kedves \${data.name},</p>
+        <p>
+          Köszönjük, hogy felvette velünk a kapcsolatot! Az üzenetét megkaptuk,
+          és rövidesen válaszolunk.
+        </p>
+        <p><strong>Email:</strong> \${data.email}</p>
+        <p><strong>Telefon:</strong> \${data.phone}</p>
+        <p><strong>Üzenet:</strong> \${data.message}</p>
+      </div>
+      <div class="footer">
+        <p>Üdvözlettel,<br /><strong>WeblabStudio</strong></p>
+      </div>
+    </div>
+  </body>
+</html>
