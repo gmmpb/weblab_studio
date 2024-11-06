@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "patch-package"
+    "postinstall": "if [ \"$NODE_ENV\" != \"production\" ]; then patch-package; fi"
   },
   "dependencies": {
     "@tensorflow-models/depth-estimation": "^0.0.4",
