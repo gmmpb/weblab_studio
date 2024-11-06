@@ -24,6 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth ">
+      <head>
+        <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+      </head>
       <body
         className={`${inter} font-inter antialiased bg-black text-slate-100 tracking-tight`}
       >

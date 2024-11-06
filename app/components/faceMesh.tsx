@@ -1,73 +1,194 @@
-'use client'
-import { useEffect, useRef, useState } from "react";
-import faceMesh from "ml5";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import ml5 from "ml5";
 
 export default function FaceMesh() {
-  const canvasRef = useRef(null);
-  const videoRef = useRef(null);
-  const [faceMeshModel, setFaceMeshModel] = useState(null);
-  const [faces, setFaces] = useState([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const animationFrameRef = useRef<number>();
+  const [faceMeshModel, setFaceMeshModel] = useState<any>(null);
+  const facesRef = useRef<any[]>([]); // Use ref instead of state
+  const [isCameraActive, setIsCameraActive] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const lastDrawTime = useRef<number>(0);
+  const lastDetectionTime = useRef<number>(0);
+  const FPS_LIMIT = 30;
+  const DETECTION_INTERVAL = 50; // Detection throttling in ms
+  const FRAME_DURATION = 1000 / FPS_LIMIT;
 
-  useEffect(() => {
-    // Initialize the webcam video
-    const video = document.createElement("video");
-    video.width = 640;
-    video.height = 480;
-    video.autoplay = true;
-    videoRef.current = video;
+  // Cache canvas dimensions
+  const dimensions = useMemo(() => ({ width: 640, height: 480 }), []);
+  const styles = {
+    container: {
+      position: "fixed" as const,
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 0,
+    },
+    canvas: {
+      background: "transparent",
+    },
+  };
 
-    navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
-      video.srcObject = stream;
+  const gotFaces = useCallback((results: any[]) => {
+    const now = performance.now();
+    if (now - lastDetectionTime.current < DETECTION_INTERVAL) return;
+
+    lastDetectionTime.current = now;
+    facesRef.current = results;
+  }, []);
+
+  const initializeWebGL = useCallback((canvas: HTMLCanvasElement) => {
+    const gl = canvas.getContext("webgl", {
+      antialias: false,
+      depth: false,
+      alpha: false,
+      stencil: false,
+    });
+    return gl;
+  }, []);
+
+  // Update the draw function
+  const draw = useCallback(() => {
+    const now = performance.now();
+    const elapsed = now - lastDrawTime.current;
+
+    if (elapsed < FRAME_DURATION) {
+      animationFrameRef.current = requestAnimationFrame(draw);
+      return;
+    }
+
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d", {
+      alpha: true, // Enable transparency
+      desynchronized: true,
     });
 
-    // Load the FaceMesh model
-    const options = { maxFaces: 1, refineLandmarks: false, flipped: false };
-    faceMesh(options, (model) => {
+    if (!ctx || !videoRef.current) return;
+
+    lastDrawTime.current = now - (elapsed % FRAME_DURATION);
+
+    // Clear with transparent background
+    ctx.clearRect(0, 0, dimensions.width, dimensions.height);
+
+    const faces = facesRef.current;
+    if (faces.length > 0) {
+      ctx.save();
+      ctx.translate(dimensions.width, 0);
+      ctx.scale(-1, 1);
+
+      faces.forEach((face) => {
+        // Batch all paths
+        const linePath = new Path2D();
+        const pointsPath = new Path2D();
+        const glowPath = new Path2D();
+
+        face.keypoints.forEach((point: any, i: number) => {
+          const size = 2 + Math.sin(now / 500 + i * 0.1);
+
+          if (i < face.keypoints.length - 1) {
+            const nextPoint = face.keypoints[i + 1];
+            linePath.moveTo(point.x, point.y);
+            linePath.lineTo(nextPoint.x, nextPoint.y);
+          }
+
+          // Add glow effects
+          glowPath.moveTo(point.x + size * 3, point.y);
+          glowPath.arc(point.x, point.y, size * 3, 0, Math.PI * 2);
+
+          // Add points
+          pointsPath.moveTo(point.x + size, point.y);
+          pointsPath.arc(point.x, point.y, size, 0, Math.PI * 2);
+        });
+
+        // Draw lines with neon green effect
+        ctx.strokeStyle = "rgba(57, 255, 20, 0.6)";
+        ctx.lineWidth = 1;
+        ctx.stroke(linePath);
+
+        // Draw glows
+        ctx.fillStyle = "rgba(57, 255, 20, 0.2)";
+        ctx.fill(glowPath);
+
+        // Draw points
+        ctx.fillStyle = "rgba(57, 255, 20, 0.8)";
+        ctx.fill(pointsPath);
+      });
+
+      ctx.restore();
+    }
+
+    animationFrameRef.current = requestAnimationFrame(draw);
+  }, [dimensions]);
+  const startCamera = useCallback(() => {
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setError("Camera not supported");
+      return;
+    }
+
+    const video = document.createElement("video");
+    Object.assign(video, dimensions, { autoplay: true });
+    videoRef.current = video;
+
+    navigator.mediaDevices
+      .getUserMedia({
+        video: {
+          facingMode: "user",
+          width: { ideal: dimensions.width },
+          height: { ideal: dimensions.height },
+        },
+      })
+      .then((stream) => {
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          videoRef.current.play();
+          setIsCameraActive(true);
+        }
+      })
+      .catch((error) => setError("Camera access denied"));
+
+    const options = {
+      maxFaces: 1,
+      refineLandmarks: true,
+      flipped: false,
+    };
+
+    ml5.faceMesh(options, (model: any) => {
       setFaceMeshModel(model);
       model.detectStart(video, gotFaces);
     });
+  }, [dimensions, gotFaces]);
 
+  useEffect(() => {
+    startCamera();
     return () => {
-      if (videoRef.current) {
+      if (videoRef.current?.srcObject) {
         videoRef.current.srcObject.getTracks().forEach((track) => track.stop());
       }
     };
-  }, []);
+  }, [startCamera]);
 
-  // Callback function to update detected faces
-  const gotFaces = (results) => {
-    setFaces(results);
-  };
-
-  // Draw faces on canvas
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-
-      faces.forEach((face) => {
-        face.keypoints.forEach((keypoint) => {
-          ctx.fillStyle = "green";
-          ctx.beginPath();
-          ctx.arc(keypoint.x, keypoint.y, 5, 0, 2 * Math.PI);
-          ctx.fill();
-        });
-      });
-
-      requestAnimationFrame(draw);
-    };
-
-    if (videoRef.current) {
+    if (isCameraActive) {
       draw();
+      return () => {
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current);
+        }
+      };
     }
-  }, [faces]);
+  }, [draw, isCameraActive]);
 
   return (
-    <div>
-      <canvas ref={canvasRef} width="640" height="480"></canvas>
+    <div style={styles.container}>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <video ref={videoRef} style={{ display: "none" }} />
+      <canvas
+        ref={canvasRef}
+        width={dimensions.width}
+        height={dimensions.height}
+        style={styles.canvas}
+      />
     </div>
   );
 }
