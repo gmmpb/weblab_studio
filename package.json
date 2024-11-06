@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@tensorflow-models/depth-estimation": "^0.0.4",
