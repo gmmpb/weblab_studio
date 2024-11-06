@@ -11,7 +11,9 @@ const textContent: { [key: string]: any } = {
     buttonArrow: "->",
     heading: "Web Development & AI Integration",
     description:
-      "Weblab Studio is a software development company that uses the latest technologies to achieve the best results.",
+      "As a young and dynamic team, we are committed to quality digital solutions. Our services include website development, web and mobile applications, AI integration, Google Ads campaign management, graphic design, and video editing.",
+      description1:
+      "Our goal is to support our clients' success with our innovative and efficient services.",
     getStarted: "Web Applications",
     readDocs: "Artificial Intelligence",
     formTitle: "Send",
@@ -33,7 +35,9 @@ const textContent: { [key: string]: any } = {
     buttonArrow: "->",
     heading: "Webfejlesztés & AI Integráció",
     description:
-      "Üdvözöljük weboldalunkon! Mi egy professzionális weboldalkészítéssel foglalkozó csapat vagyunk, amelynek célja, hogy ügyfeleink online jelenlétét magasabb szintre emelje. Szakterületünk a modern, felhasználóbarát és reszponzív weboldalak tervezése és fejlesztése, amelyek nemcsak esztétikailag kiemelkedőek, hanem üzleti céljainak is hatékonyan megfelelnek. Ha Ön is szeretné, hogy weboldala professzionális, látványos és célzott megoldásokkal erősítse márkáját, keressen minket bizalommal! Számunkra az ügyfeleink elégedettsége a legfontosabb, és mindig törekszünk arra, hogy túlszárnyaljuk az elvárásaikat. Lépjen velünk kapcsolatba, és valósítsuk meg együtt az Ön elképzeléseit!",
+      "Fiatal és lendületes csapatként elkötelezettek vagyunk a minőségi digitális megoldások iránt. Szolgáltatásaink közé tartozik weboldalak, web- és mobilalkalmazások fejlesztése, AI integráció, Google Ads kampányok kezelése, grafikai tervezés és videószerkesztés.",
+      description1:
+      "Célunk, hogy innovatív és hatékony szolgáltatásainkkal támogassuk ügyfeleink sikerét.",
     getStarted: "Webalkalmazások",
     readDocs: "Mesterséges Intelligencia",
     formTitle: "Küldés",
@@ -105,6 +109,13 @@ export default function Hero() {
                   data-aos-delay="200"
                 >
                   {currentText.description}
+                </p>
+                <p
+                  className="text-lg text-slate-300 mb-8"
+                  data-aos="fade-down"
+                  data-aos-delay="200"
+                >
+                  {currentText.description1}
                 </p>
                 <div
                   className="max-w-xs mx-auto sm:max-w-none sm:inline-flex sm:justify-center space-y-4 sm:space-y-0 sm:space-x-4"
