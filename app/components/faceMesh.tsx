@@ -119,7 +119,8 @@ export default function FaceMesh() {
     }
 
     animationFrameRef.current = requestAnimationFrame(draw);
-  }, [dimensions]);
+  }, [dimensions, FRAME_DURATION]);
+
   const startCamera = useCallback(() => {
     if (!navigator.mediaDevices?.getUserMedia) {
       setError("Camera not supported");
@@ -161,9 +162,13 @@ export default function FaceMesh() {
 
   useEffect(() => {
     startCamera();
+
+    // Store ref in variable for cleanup
+    const videoElement = videoRef.current;
+
     return () => {
-      if (videoRef.current?.srcObject) {
-        (videoRef.current.srcObject as MediaStream)
+      if (videoElement?.srcObject) {
+        (videoElement.srcObject as MediaStream)
           .getTracks()
           .forEach((track) => track.stop());
       }
