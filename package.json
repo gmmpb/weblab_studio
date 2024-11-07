@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "next lint",
     "preinstall": "npm install patch-package",
-    "postinstall": "patch-package || echo 'patch-package not found, skipping...'"
+    "postinstall": "patch-package || true"
   },
   "dependencies": {
     "@tensorflow-models/depth-estimation": "^0.0.4",

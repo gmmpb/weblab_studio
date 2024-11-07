@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm install patch-package && npm install && npm run build",
+  "installCommand": "npm install patch-package",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ]
+}
