@@ -79,7 +79,7 @@ export default function Hero() {
             handleLanguageSwitch={handleLanguageSwitch}
           />
         </div>
-        <div className="pt-16 pb-16 md:pt-40 md:pb-32">
+        <div className="pt-16 pb-16 md:pt-16 md:pb-16">
           {/* Main Content */}
           <div className="flex-grow container mx-auto p-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-28 justify-center items-center">
