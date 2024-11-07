@@ -28,9 +28,16 @@ export default function FaceMesh() {
     },
     canvas: {
       background: "transparent",
-      WebkitBackgroundClip: "padding-box", // Add for mobile Safari
+      backgroundColor: "transparent",
+      WebkitBackgroundClip: "padding-box",
       backgroundClip: "padding-box",
-      backgroundColor: "rgba(0,0,0,0)", // Explicit transparent background
+      transform: "translateZ(0)", // Force GPU acceleration
+      WebkitTransform: "translateZ(0)",
+      width: "100%",
+      height: "100%",
+      maxWidth: "100vw",
+      maxHeight: "100vh",
+      objectFit: "contain",
     },
   };
 
@@ -74,7 +81,8 @@ export default function FaceMesh() {
 
     // Clear with transparent background
     ctx.clearRect(0, 0, dimensions.width, dimensions.height);
-
+    ctx.fillStyle = "rgba(0,0,0,0)";
+    ctx.fillRect(0, 0, dimensions.width, dimensions.height);
     const faces = facesRef.current;
     if (faces.length > 0) {
       ctx.save();
@@ -194,12 +202,14 @@ export default function FaceMesh() {
         ref={canvasRef}
         width={dimensions.width}
         height={dimensions.height}
-        style={{
-          ...styles.canvas,
-          backgroundColor: "rgba(0,0,0,0)",
-          WebkitBackfaceVisibility: "hidden",
-          backfaceVisibility: "hidden",
-        }}
+        style={
+          {
+            ...styles.canvas,
+            backgroundColor: "rgba(0,0,0,0)",
+            WebkitBackfaceVisibility: "hidden",
+            backfaceVisibility: "hidden",
+          } as React.CSSProperties
+        }
       />
     </div>
   );
