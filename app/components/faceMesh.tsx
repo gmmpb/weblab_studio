@@ -120,6 +120,7 @@ export default function FaceMesh() {
 
     animationFrameRef.current = requestAnimationFrame(draw);
   }, [dimensions]);
+
   const startCamera = useCallback(() => {
     if (!navigator.mediaDevices?.getUserMedia) {
       setError("Camera not supported");

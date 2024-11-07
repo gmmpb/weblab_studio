@@ -10,13 +10,13 @@ importers:
     dependencies:
       '@tensorflow-models/depth-estimation':
         specifier: ^0.0.4
-        version: 0.0.4(@tensorflow-models/body-segmentation@1.0.2)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
+        version: 0.0.4(@tensorflow-models/body-segmentation@1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
       '@tensorflow/tfjs':
         specifier: ^4.20.0
-        version: 4.22.0(seedrandom@3.0.5)
+        version: 4.22.0(encoding@0.1.13)(seedrandom@3.0.5)
       '@tensorflow/tfjs-backend-wasm':
         specifier: ^4.20.0
-        version: 4.22.0(@tensorflow/tfjs-core@4.22.0)
+        version: 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
       axios:
         specifier: ^1.7.3
         version: 1.7.7
@@ -28,16 +28,19 @@ importers:
         version: 0.0.28
       ml5:
         specifier: ^1.1.0
-        version: 1.1.0(@tensorflow-models/face-detection@1.0.3)(@tensorflow/tfjs-backend-wasm@4.22.0)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-backend-webgpu@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)(@tensorflow/tfjs-data@3.21.0)(@tensorflow/tfjs-layers@3.21.0)(seedrandom@3.0.5)
+        version: 1.1.0(@tensorflow-models/face-detection@1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-wasm@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgpu@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(@tensorflow/tfjs-data@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)(seedrandom@3.0.5))(@tensorflow/tfjs-layers@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(encoding@0.1.13)(seedrandom@3.0.5)
       next:
         specifier: 14.2.5
-        version: 14.2.5(react-dom@18.3.1)(react@18.3.1)
+        version: 14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       nodemailer:
         specifier: ^6.9.14
         version: 6.9.16
       patch-package:
         specifier: ^8.0.0
         version: 8.0.0
+      postinstall-postinstall:
+        specifier: ^2.1.0
+        version: 2.1.0
       react:
         specifier: ^18
         version: 18.3.1
@@ -46,7 +49,7 @@ importers:
         version: 18.3.1(react@18.3.1)
       react-google-recaptcha-v3:
         specifier: ^1.10.1
-        version: 1.10.1(react-dom@18.3.1)(react@18.3.1)
+        version: 1.10.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       sanitize-html:
         specifier: ^2.13.0
         version: 2.13.1
@@ -349,22 +352,11 @@ packages:
     resolution: {integrity: sha512-LEkOyzbknKFoWUwfkr59vSB68DMJ4cjwwHgicXN0DUi3a0Vh1Er3JQqCI1Hl86GGZQvY8ezVrtDIvqR1ZFW55A==}
     engines: {yarn: '>= 1.3.2'}
 
-  '@tensorflow/tfjs-data@3.21.0':
-    resolution: {integrity: sha512-eFLfw2wIcFNxnP2Iv/SnVlihehzKMumk1b5Prcx1ixk/SbkCo5u0Lt7OVOWaEOKVqvB2sT+dJcTjAh6lrCC/QA==}
-    peerDependencies:
-      '@tensorflow/tfjs-core': 3.21.0
-      seedrandom: ^3.0.5
-
   '@tensorflow/tfjs-data@4.22.0':
     resolution: {integrity: sha512-dYmF3LihQIGvtgJrt382hSRH4S0QuAp2w1hXJI2+kOaEqo5HnUPG0k5KA6va+S1yUhx7UBToUKCBHeLHFQRV4w==}
     peerDependencies:
       '@tensorflow/tfjs-core': 4.22.0
       seedrandom: ^3.0.5
-
-  '@tensorflow/tfjs-layers@3.21.0':
-    resolution: {integrity: sha512-CMVXsraakXgnXEnqD9QbtResA7nvV7Jz20pGmjFIodcQkClgmFFhdCG5N+zlVRHEz7VKG2OyfhltZ0dBq/OAhA==}
-    peerDependencies:
-      '@tensorflow/tfjs-core': 3.21.0
 
   '@tensorflow/tfjs-layers@4.22.0':
     resolution: {integrity: sha512-lybPj4ZNj9iIAPUj7a8ZW1hg8KQGfqWLlCZDi9eM/oNKCCAgchiyzx8OrYoWmRrB+AM6VNEeIT+2gZKg5ReihA==}
@@ -1826,6 +1818,9 @@ packages:
     resolution: {integrity: sha512-56rxCq7G/XfB4EkXq9Egn5GCqugWvDFjafDOThIdMBsI15iqPqR5r15TfSr1YPYeEI19YeaXMCbY6u88Y76GLQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postinstall-postinstall@2.1.0:
+    resolution: {integrity: sha512-7hQX6ZlZXIoRiWNrbMQaLzUUfH+sSx39u8EJ9HYuDc1kLo9IXKWjM5RSquZN1ad5GnH8CGFM78fsAAQi3OKEEQ==}
+
   preact@8.2.9:
     resolution: {integrity: sha512-ThuGXBmJS3VsT+jIP+eQufD3L8pRw/PY3FoCys6O9Pu6aF12Pn9zAJDX99TfwRAFOCEKm/P0lwiPTbqKMJp0fA==}
 
@@ -2571,161 +2566,147 @@ snapshots:
       '@swc/counter': 0.1.3
       tslib: 2.8.1
 
-  '@tensorflow-models/body-segmentation@1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow-models/body-segmentation@1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
       '@mediapipe/selfie_segmentation': 0.1.1675465747
-      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       rimraf: 3.0.2
 
-  '@tensorflow-models/depth-estimation@0.0.4(@tensorflow-models/body-segmentation@1.0.2)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow-models/depth-estimation@0.0.4(@tensorflow-models/body-segmentation@1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow-models/body-segmentation': 1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow-models/body-segmentation': 1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       rimraf: 3.0.2
 
-  '@tensorflow-models/face-detection@1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow-models/face-detection@1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
       '@mediapipe/face_detection': 0.4.1646425229
-      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       rimraf: 3.0.2
       tslib: 2.4.0
 
-  '@tensorflow-models/face-landmarks-detection@1.0.5(@mediapipe/face_mesh@0.4.1633559619)(@tensorflow-models/face-detection@1.0.3)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow-models/face-landmarks-detection@1.0.5(@mediapipe/face_mesh@0.4.1633559619)(@tensorflow-models/face-detection@1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
       '@mediapipe/face_mesh': 0.4.1633559619
-      '@tensorflow-models/face-detection': 1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow-models/face-detection': 1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       rimraf: 3.0.2
 
-  '@tensorflow-models/hand-pose-detection@2.0.1(@mediapipe/hands@0.4.1675469240)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow-models/hand-pose-detection@2.0.1(@mediapipe/hands@0.4.1675469240)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
       '@mediapipe/hands': 0.4.1675469240
-      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       rimraf: 3.0.2
       tslib: 2.8.1
 
-  '@tensorflow-models/mobilenet@2.1.1(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow-models/mobilenet@2.1.1(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
 
-  '@tensorflow-models/pose-detection@2.1.3(@mediapipe/pose@0.5.1675469404)(@tensorflow/tfjs-backend-wasm@4.22.0)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-backend-webgpu@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow-models/pose-detection@2.1.3(@mediapipe/pose@0.5.1675469404)(@tensorflow/tfjs-backend-wasm@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgpu@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
       '@mediapipe/pose': 0.5.1675469404
-      '@tensorflow/tfjs-backend-wasm': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-backend-webgpu': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-backend-wasm': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-backend-webgpu': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       rimraf: 3.0.2
       tslib: 2.4.0
 
-  '@tensorflow-models/speech-commands@0.5.4(@tensorflow/tfjs-core@4.22.0)(@tensorflow/tfjs-data@3.21.0)(@tensorflow/tfjs-layers@3.21.0)':
+  '@tensorflow-models/speech-commands@0.5.4(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(@tensorflow/tfjs-data@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)(seedrandom@3.0.5))(@tensorflow/tfjs-layers@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))':
     dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
-      '@tensorflow/tfjs-data': 3.21.0(@tensorflow/tfjs-core@4.22.0)(seedrandom@3.0.5)
-      '@tensorflow/tfjs-layers': 3.21.0(@tensorflow/tfjs-core@4.22.0)
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
+      '@tensorflow/tfjs-data': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)(seedrandom@3.0.5)
+      '@tensorflow/tfjs-layers': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
 
-  '@tensorflow/tfjs-backend-cpu@4.22.0(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow/tfjs-backend-cpu@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       '@types/seedrandom': 2.4.34
       seedrandom: 3.0.5
 
-  '@tensorflow/tfjs-backend-wasm@4.22.0(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow/tfjs-backend-wasm@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       '@types/emscripten': 0.0.34
 
-  '@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       '@types/offscreencanvas': 2019.3.0
       '@types/seedrandom': 2.4.34
       seedrandom: 3.0.5
 
-  '@tensorflow/tfjs-backend-webgpu@4.22.0(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow/tfjs-backend-webgpu@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
 
-  '@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
 
-  '@tensorflow/tfjs-core@4.22.0':
+  '@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)':
     dependencies:
       '@types/long': 4.0.2
       '@types/offscreencanvas': 2019.7.3
       '@types/seedrandom': 2.4.34
       '@webgpu/types': 0.1.38
       long: 4.0.0
-      node-fetch: 2.6.13
+      node-fetch: 2.6.13(encoding@0.1.13)
       seedrandom: 3.0.5
     transitivePeerDependencies:
       - encoding
 
-  '@tensorflow/tfjs-data@3.21.0(@tensorflow/tfjs-core@4.22.0)(seedrandom@3.0.5)':
+  '@tensorflow/tfjs-data@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)(seedrandom@3.0.5)':
     dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       '@types/node-fetch': 2.6.11
-      node-fetch: 2.6.13
+      node-fetch: 2.6.13(encoding@0.1.13)
       seedrandom: 3.0.5
       string_decoder: 1.3.0
     transitivePeerDependencies:
       - encoding
 
-  '@tensorflow/tfjs-data@4.22.0(@tensorflow/tfjs-core@4.22.0)(seedrandom@3.0.5)':
+  '@tensorflow/tfjs-layers@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))':
     dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
-      '@types/node-fetch': 2.6.11
-      node-fetch: 2.6.13
-      seedrandom: 3.0.5
-      string_decoder: 1.3.0
-    transitivePeerDependencies:
-      - encoding
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
 
-  '@tensorflow/tfjs-layers@3.21.0(@tensorflow/tfjs-core@4.22.0)':
+  '@tensorflow/tfjs-vis@1.5.1(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)':
     dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
-
-  '@tensorflow/tfjs-layers@4.22.0(@tensorflow/tfjs-core@4.22.0)':
-    dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
-
-  '@tensorflow/tfjs-vis@1.5.1(@tensorflow/tfjs-core@4.22.0)':
-    dependencies:
-      '@tensorflow/tfjs-core': 4.22.0
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
       d3-format: 1.3.2
       d3-selection: 1.3.2
       glamor: 2.20.40
       preact: 8.2.9
-      vega: 5.20.0
-      vega-embed: 6.17.0(vega-lite@4.13.1)(vega@5.20.0)
-      vega-lite: 4.13.1(vega@5.20.0)
+      vega: 5.20.0(encoding@0.1.13)
+      vega-embed: 6.17.0(vega-lite@4.13.1(vega@5.20.0(encoding@0.1.13)))(vega@5.20.0(encoding@0.1.13))
+      vega-lite: 4.13.1(vega@5.20.0(encoding@0.1.13))
     transitivePeerDependencies:
       - encoding
 
-  '@tensorflow/tfjs@4.22.0(seedrandom@3.0.5)':
+  '@tensorflow/tfjs@4.22.0(encoding@0.1.13)(seedrandom@3.0.5)':
     dependencies:
-      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow/tfjs-core': 4.22.0
-      '@tensorflow/tfjs-data': 4.22.0(@tensorflow/tfjs-core@4.22.0)(seedrandom@3.0.5)
-      '@tensorflow/tfjs-layers': 4.22.0(@tensorflow/tfjs-core@4.22.0)
+      '@tensorflow/tfjs-backend-cpu': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-backend-webgl': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-converter': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow/tfjs-core': 4.22.0(encoding@0.1.13)
+      '@tensorflow/tfjs-data': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)(seedrandom@3.0.5)
+      '@tensorflow/tfjs-layers': 4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
       argparse: 1.0.10
       chalk: 4.1.2
       core-js: 3.29.1
@@ -2793,6 +2774,7 @@ snapshots:
       '@typescript-eslint/visitor-keys': 7.2.0
       debug: 4.3.7
       eslint: 8.57.1
+    optionalDependencies:
       typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
@@ -2814,6 +2796,7 @@ snapshots:
       minimatch: 9.0.3
       semver: 7.6.3
       ts-api-utils: 1.4.0(typescript@5.6.3)
+    optionalDependencies:
       typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
@@ -3404,11 +3387,12 @@ snapshots:
       '@typescript-eslint/parser': 7.2.0(eslint@8.57.1)(typescript@5.6.3)
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@8.57.1)
       eslint-plugin-react: 7.37.2(eslint@8.57.1)
       eslint-plugin-react-hooks: 5.0.0-canary-7118f5dd7-20230705(eslint@8.57.1)
+    optionalDependencies:
       typescript: 5.6.3
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
@@ -3423,38 +3407,39 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1):
+  eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1):
     dependencies:
       '@nolyfill/is-core-module': 1.0.39
       debug: 4.3.7
       enhanced-resolve: 5.17.1
       eslint: 8.57.1
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1)
       fast-glob: 3.3.2
       get-tsconfig: 4.8.1
       is-bun-module: 1.2.1
       is-glob: 4.0.3
+    optionalDependencies:
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
     transitivePeerDependencies:
       - '@typescript-eslint/parser'
       - eslint-import-resolver-node
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
+  eslint-module-utils@2.12.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1):
     dependencies:
-      '@typescript-eslint/parser': 7.2.0(eslint@8.57.1)(typescript@5.6.3)
       debug: 3.2.7
+    optionalDependencies:
+      '@typescript-eslint/parser': 7.2.0(eslint@8.57.1)(typescript@5.6.3)
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1)
+      eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1)
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
-      '@typescript-eslint/parser': 7.2.0(eslint@8.57.1)(typescript@5.6.3)
       array-includes: 3.1.8
       array.prototype.findlastindex: 1.2.5
       array.prototype.flat: 1.3.2
@@ -3463,7 +3448,7 @@ snapshots:
       doctrine: 2.1.0
       eslint: 8.57.1
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.2.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3)(eslint@8.57.1)
+      eslint-module-utils: 2.12.0(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.3(@typescript-eslint/parser@7.2.0(eslint@8.57.1)(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.31.0)(eslint@8.57.1))(eslint@8.57.1)
       hasown: 2.0.2
       is-core-module: 2.15.1
       is-glob: 4.0.3
@@ -3474,6 +3459,8 @@ snapshots:
       semver: 6.3.1
       string.prototype.trimend: 1.0.8
       tsconfig-paths: 3.15.0
+    optionalDependencies:
+      '@typescript-eslint/parser': 7.2.0(eslint@8.57.1)(typescript@5.6.3)
     transitivePeerDependencies:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
@@ -4121,20 +4108,20 @@ snapshots:
 
   minipass@7.1.2: {}
 
-  ml5@1.1.0(@tensorflow-models/face-detection@1.0.3)(@tensorflow/tfjs-backend-wasm@4.22.0)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-backend-webgpu@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)(@tensorflow/tfjs-data@3.21.0)(@tensorflow/tfjs-layers@3.21.0)(seedrandom@3.0.5):
+  ml5@1.1.0(@tensorflow-models/face-detection@1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-wasm@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgpu@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(@tensorflow/tfjs-data@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)(seedrandom@3.0.5))(@tensorflow/tfjs-layers@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(encoding@0.1.13)(seedrandom@3.0.5):
     dependencies:
       '@mediapipe/face_mesh': 0.4.1633559619
       '@mediapipe/hands': 0.4.1675469240
       '@mediapipe/pose': 0.5.1675469404
       '@mediapipe/selfie_segmentation': 0.1.1675465747
-      '@tensorflow-models/body-segmentation': 1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow-models/face-landmarks-detection': 1.0.5(@mediapipe/face_mesh@0.4.1633559619)(@tensorflow-models/face-detection@1.0.3)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow-models/hand-pose-detection': 2.0.1(@mediapipe/hands@0.4.1675469240)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow-models/mobilenet': 2.1.1(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow-models/pose-detection': 2.1.3(@mediapipe/pose@0.5.1675469404)(@tensorflow/tfjs-backend-wasm@4.22.0)(@tensorflow/tfjs-backend-webgl@4.22.0)(@tensorflow/tfjs-backend-webgpu@4.22.0)(@tensorflow/tfjs-converter@4.22.0)(@tensorflow/tfjs-core@4.22.0)
-      '@tensorflow-models/speech-commands': 0.5.4(@tensorflow/tfjs-core@4.22.0)(@tensorflow/tfjs-data@3.21.0)(@tensorflow/tfjs-layers@3.21.0)
-      '@tensorflow/tfjs': 4.22.0(seedrandom@3.0.5)
-      '@tensorflow/tfjs-vis': 1.5.1(@tensorflow/tfjs-core@4.22.0)
+      '@tensorflow-models/body-segmentation': 1.0.2(@mediapipe/selfie_segmentation@0.1.1675465747)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow-models/face-landmarks-detection': 1.0.5(@mediapipe/face_mesh@0.4.1633559619)(@tensorflow-models/face-detection@1.0.3(@mediapipe/face_detection@0.4.1646425229)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow-models/hand-pose-detection': 2.0.1(@mediapipe/hands@0.4.1675469240)(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow-models/mobilenet': 2.1.1(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow-models/pose-detection': 2.1.3(@mediapipe/pose@0.5.1675469404)(@tensorflow/tfjs-backend-wasm@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgl@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-backend-webgpu@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-converter@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))
+      '@tensorflow-models/speech-commands': 0.5.4(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(@tensorflow/tfjs-data@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)(seedrandom@3.0.5))(@tensorflow/tfjs-layers@4.22.0(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13)))
+      '@tensorflow/tfjs': 4.22.0(encoding@0.1.13)(seedrandom@3.0.5)
+      '@tensorflow/tfjs-vis': 1.5.1(@tensorflow/tfjs-core@4.22.0(encoding@0.1.13))(encoding@0.1.13)
       axios: 1.7.7
       webpack-merge: 5.10.0
     transitivePeerDependencies:
@@ -4162,7 +4149,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next@14.2.5(react-dom@18.3.1)(react@18.3.1):
+  next@14.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 14.2.5
       '@swc/helpers': 0.5.5
@@ -4192,9 +4179,11 @@ snapshots:
       encoding: 0.1.13
       is-stream: 1.1.0
 
-  node-fetch@2.6.13:
+  node-fetch@2.6.13(encoding@0.1.13):
     dependencies:
       whatwg-url: 5.0.0
+    optionalDependencies:
+      encoding: 0.1.13
 
   nodemailer@6.9.16: {}
 
@@ -4344,8 +4333,9 @@ snapshots:
   postcss-load-config@4.0.2(postcss@8.4.47):
     dependencies:
       lilconfig: 3.1.2
-      postcss: 8.4.47
       yaml: 2.6.0
+    optionalDependencies:
+      postcss: 8.4.47
 
   postcss-nested@6.2.0(postcss@8.4.47):
     dependencies:
@@ -4370,6 +4360,8 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.1.1
       source-map-js: 1.2.1
+
+  postinstall-postinstall@2.1.0: {}
 
   preact@8.2.9: {}
 
@@ -4397,7 +4389,7 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-google-recaptcha-v3@1.10.1(react-dom@18.3.1)(react@18.3.1):
+  react-google-recaptcha-v3@1.10.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       hoist-non-react-statics: 3.3.2
       react: 18.3.1
@@ -4788,38 +4780,38 @@ snapshots:
 
   vega-canvas@1.2.7: {}
 
-  vega-crossfilter@4.0.5:
+  vega-crossfilter@4.0.5(encoding@0.1.13):
     dependencies:
       d3-array: 2.12.1
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-dataflow@5.7.6:
+  vega-dataflow@5.7.6(encoding@0.1.13):
     dependencies:
       vega-format: 1.1.2
-      vega-loader: 4.5.2
+      vega-loader: 4.5.2(encoding@0.1.13)
       vega-util: 1.17.2
     transitivePeerDependencies:
       - encoding
 
-  vega-embed@6.17.0(vega-lite@4.13.1)(vega@5.20.0):
+  vega-embed@6.17.0(vega-lite@4.13.1(vega@5.20.0(encoding@0.1.13)))(vega@5.20.0(encoding@0.1.13)):
     dependencies:
       fast-json-patch: 3.1.1
       json-stringify-pretty-compact: 3.0.0
       semver: 7.6.3
-      vega: 5.20.0
-      vega-lite: 4.13.1(vega@5.20.0)
+      vega: 5.20.0(encoding@0.1.13)
+      vega-lite: 4.13.1(vega@5.20.0(encoding@0.1.13))
       vega-schema-url-parser: 2.2.0
-      vega-themes: 2.15.0(vega-lite@4.13.1)(vega@5.20.0)
+      vega-themes: 2.15.0(vega-lite@4.13.1(vega@5.20.0(encoding@0.1.13)))(vega@5.20.0(encoding@0.1.13))
       vega-tooltip: 0.25.1
 
-  vega-encode@4.8.3:
+  vega-encode@4.8.3(encoding@0.1.13):
     dependencies:
       d3-array: 2.12.1
       d3-interpolate: 2.0.1
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-scale: 7.1.1
       vega-util: 1.16.1
     transitivePeerDependencies:
@@ -4842,10 +4834,10 @@ snapshots:
       '@types/estree': 1.0.6
       vega-util: 1.17.2
 
-  vega-force@4.0.7:
+  vega-force@4.0.7(encoding@0.1.13):
     dependencies:
       d3-force: 2.1.1
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
@@ -4866,15 +4858,15 @@ snapshots:
       vega-time: 2.1.2
       vega-util: 1.17.2
 
-  vega-functions@5.12.1:
+  vega-functions@5.12.1(encoding@0.1.13):
     dependencies:
       d3-array: 2.12.1
       d3-color: 2.0.0
       d3-geo: 2.0.2
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-expression: 5.1.1
       vega-scale: 7.1.1
-      vega-scenegraph: 4.9.4
+      vega-scenegraph: 4.9.4(encoding@0.1.13)
       vega-selections: 5.4.2
       vega-statistics: 1.7.10
       vega-time: 2.0.4
@@ -4882,37 +4874,37 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  vega-geo@4.3.8:
+  vega-geo@4.3.8(encoding@0.1.13):
     dependencies:
       d3-array: 2.12.1
       d3-color: 2.0.0
       d3-geo: 2.0.2
       vega-canvas: 1.2.7
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-projection: 1.4.5
       vega-statistics: 1.7.10
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-hierarchy@4.0.9:
+  vega-hierarchy@4.0.9(encoding@0.1.13):
     dependencies:
       d3-hierarchy: 2.0.0
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-label@1.0.0:
+  vega-label@1.0.0(encoding@0.1.13):
     dependencies:
       vega-canvas: 1.2.7
-      vega-dataflow: 5.7.6
-      vega-scenegraph: 4.9.4
+      vega-dataflow: 5.7.6(encoding@0.1.13)
+      vega-scenegraph: 4.9.4(encoding@0.1.13)
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-lite@4.13.1(vega@5.20.0):
+  vega-lite@4.13.1(vega@5.20.0(encoding@0.1.13)):
     dependencies:
       '@types/clone': 0.1.30
       '@types/fast-json-stable-stringify': 2.1.2
@@ -4922,37 +4914,37 @@ snapshots:
       fast-json-stable-stringify: 2.1.0
       json-stringify-pretty-compact: 2.0.0
       tslib: 2.0.3
-      vega: 5.20.0
+      vega: 5.20.0(encoding@0.1.13)
       vega-event-selector: 2.0.6
       vega-expression: 2.6.6
       vega-util: 1.14.1
       yargs: 15.3.1
 
-  vega-loader@4.4.1:
+  vega-loader@4.4.1(encoding@0.1.13):
     dependencies:
       d3-dsv: 2.0.0
-      node-fetch: 2.6.13
+      node-fetch: 2.6.13(encoding@0.1.13)
       topojson-client: 3.1.0
       vega-format: 1.0.4
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-loader@4.5.2:
+  vega-loader@4.5.2(encoding@0.1.13):
     dependencies:
       d3-dsv: 3.0.1
-      node-fetch: 2.6.13
+      node-fetch: 2.6.13(encoding@0.1.13)
       topojson-client: 3.1.0
       vega-format: 1.1.2
       vega-util: 1.17.2
     transitivePeerDependencies:
       - encoding
 
-  vega-parser@6.1.4:
+  vega-parser@6.1.4(encoding@0.1.13):
     dependencies:
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-event-selector: 3.0.1
-      vega-functions: 5.12.1
+      vega-functions: 5.12.1(encoding@0.1.13)
       vega-scale: 7.1.1
       vega-util: 1.16.1
     transitivePeerDependencies:
@@ -4963,18 +4955,18 @@ snapshots:
       d3-geo: 2.0.2
       d3-geo-projection: 3.0.0
 
-  vega-regression@1.0.9:
+  vega-regression@1.0.9(encoding@0.1.13):
     dependencies:
       d3-array: 2.12.1
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-statistics: 1.7.10
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-runtime@6.1.4:
+  vega-runtime@6.1.4(encoding@0.1.13):
     dependencies:
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-util: 1.17.2
     transitivePeerDependencies:
       - encoding
@@ -4996,23 +4988,23 @@ snapshots:
       vega-time: 2.1.2
       vega-util: 1.17.2
 
-  vega-scenegraph@4.13.0:
+  vega-scenegraph@4.13.0(encoding@0.1.13):
     dependencies:
       d3-path: 3.1.0
       d3-shape: 3.2.0
       vega-canvas: 1.2.7
-      vega-loader: 4.5.2
+      vega-loader: 4.5.2(encoding@0.1.13)
       vega-scale: 7.4.1
       vega-util: 1.17.2
     transitivePeerDependencies:
       - encoding
 
-  vega-scenegraph@4.9.4:
+  vega-scenegraph@4.9.4(encoding@0.1.13):
     dependencies:
       d3-path: 2.0.0
       d3-shape: 2.1.0
       vega-canvas: 1.2.7
-      vega-loader: 4.4.1
+      vega-loader: 4.4.1(encoding@0.1.13)
       vega-scale: 7.1.1
       vega-util: 1.16.1
     transitivePeerDependencies:
@@ -5034,10 +5026,10 @@ snapshots:
     dependencies:
       d3-array: 3.2.4
 
-  vega-themes@2.15.0(vega-lite@4.13.1)(vega@5.20.0):
+  vega-themes@2.15.0(vega-lite@4.13.1(vega@5.20.0(encoding@0.1.13)))(vega@5.20.0(encoding@0.1.13)):
     dependencies:
-      vega: 5.20.0
-      vega-lite: 4.13.1(vega@5.20.0)
+      vega: 5.20.0(encoding@0.1.13)
+      vega-lite: 4.13.1(vega@5.20.0(encoding@0.1.13))
 
   vega-time@2.0.4:
     dependencies:
@@ -5055,10 +5047,10 @@ snapshots:
     dependencies:
       vega-util: 1.17.2
 
-  vega-transforms@4.9.4:
+  vega-transforms@4.9.4(encoding@0.1.13):
     dependencies:
       d3-array: 2.12.1
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-statistics: 1.7.10
       vega-time: 2.0.4
       vega-util: 1.16.1
@@ -5075,74 +5067,74 @@ snapshots:
 
   vega-util@1.17.2: {}
 
-  vega-view-transforms@4.5.9:
+  vega-view-transforms@4.5.9(encoding@0.1.13):
     dependencies:
-      vega-dataflow: 5.7.6
-      vega-scenegraph: 4.13.0
+      vega-dataflow: 5.7.6(encoding@0.1.13)
+      vega-scenegraph: 4.13.0(encoding@0.1.13)
       vega-util: 1.17.2
     transitivePeerDependencies:
       - encoding
 
-  vega-view@5.10.1:
+  vega-view@5.10.1(encoding@0.1.13):
     dependencies:
       d3-array: 2.12.1
       d3-timer: 2.0.0
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-format: 1.0.4
-      vega-functions: 5.12.1
-      vega-runtime: 6.1.4
-      vega-scenegraph: 4.9.4
+      vega-functions: 5.12.1(encoding@0.1.13)
+      vega-runtime: 6.1.4(encoding@0.1.13)
+      vega-scenegraph: 4.9.4(encoding@0.1.13)
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-voronoi@4.1.5:
+  vega-voronoi@4.1.5(encoding@0.1.13):
     dependencies:
       d3-delaunay: 5.3.0
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-util: 1.16.1
     transitivePeerDependencies:
       - encoding
 
-  vega-wordcloud@4.1.5:
+  vega-wordcloud@4.1.5(encoding@0.1.13):
     dependencies:
       vega-canvas: 1.2.7
-      vega-dataflow: 5.7.6
+      vega-dataflow: 5.7.6(encoding@0.1.13)
       vega-scale: 7.4.1
       vega-statistics: 1.9.0
       vega-util: 1.17.2
     transitivePeerDependencies:
       - encoding
 
-  vega@5.20.0:
+  vega@5.20.0(encoding@0.1.13):
     dependencies:
-      vega-crossfilter: 4.0.5
-      vega-dataflow: 5.7.6
-      vega-encode: 4.8.3
+      vega-crossfilter: 4.0.5(encoding@0.1.13)
+      vega-dataflow: 5.7.6(encoding@0.1.13)
+      vega-encode: 4.8.3(encoding@0.1.13)
       vega-event-selector: 2.0.6
       vega-expression: 4.0.1
-      vega-force: 4.0.7
+      vega-force: 4.0.7(encoding@0.1.13)
       vega-format: 1.0.4
-      vega-functions: 5.12.1
-      vega-geo: 4.3.8
-      vega-hierarchy: 4.0.9
-      vega-label: 1.0.0
-      vega-loader: 4.4.1
-      vega-parser: 6.1.4
+      vega-functions: 5.12.1(encoding@0.1.13)
+      vega-geo: 4.3.8(encoding@0.1.13)
+      vega-hierarchy: 4.0.9(encoding@0.1.13)
+      vega-label: 1.0.0(encoding@0.1.13)
+      vega-loader: 4.4.1(encoding@0.1.13)
+      vega-parser: 6.1.4(encoding@0.1.13)
       vega-projection: 1.4.5
-      vega-regression: 1.0.9
-      vega-runtime: 6.1.4
+      vega-regression: 1.0.9(encoding@0.1.13)
+      vega-runtime: 6.1.4(encoding@0.1.13)
       vega-scale: 7.1.1
-      vega-scenegraph: 4.9.4
+      vega-scenegraph: 4.9.4(encoding@0.1.13)
       vega-statistics: 1.7.10
       vega-time: 2.0.4
-      vega-transforms: 4.9.4
+      vega-transforms: 4.9.4(encoding@0.1.13)
       vega-typings: 0.20.0
       vega-util: 1.16.1
-      vega-view: 5.10.1
-      vega-view-transforms: 4.5.9
-      vega-voronoi: 4.1.5
-      vega-wordcloud: 4.1.5
+      vega-view: 5.10.1(encoding@0.1.13)
+      vega-view-transforms: 4.5.9(encoding@0.1.13)
+      vega-voronoi: 4.1.5(encoding@0.1.13)
+      vega-wordcloud: 4.1.5(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
 
