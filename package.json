@@ -10,8 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preinstall": "npm install patch-package",
-    "postinstall": "patch-package || true"
+    "postinstall": "patch-package || exit 0"
   },
   "dependencies": {
     "@tensorflow-models/depth-estimation": "^0.0.4",
@@ -24,6 +23,7 @@
     "next": "14.2.5",
     "nodemailer": "^6.9.14",
     "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-google-recaptcha-v3": "^1.10.1",

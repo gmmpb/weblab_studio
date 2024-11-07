@@ -1,10 +1,13 @@
 {
-  "buildCommand": "npm install patch-package && npm install && npm run build",
-  "installCommand": "npm install patch-package",
+  "version": 2,
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "installCommand": "npm install --legacy-peer-deps",
+        "buildCommand": "npm run build"
+      }
     }
   ]
 }
