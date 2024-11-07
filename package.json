@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preinstall": "npm install patch-package"
+    "preinstall": "npm install patch-package",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@tensorflow-models/depth-estimation": "^0.0.4",
