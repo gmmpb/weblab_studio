@@ -27,17 +27,17 @@ export default function FaceMesh() {
       zIndex: 0,
     },
     canvas: {
-      background: "transparent",
-      backgroundColor: "transparent",
+      background: "rgba(0,0,0,0)",
       WebkitBackgroundClip: "padding-box",
       backgroundClip: "padding-box",
-      transform: "translateZ(0)", // Force GPU acceleration
+      transform: "translateZ(0)",
       WebkitTransform: "translateZ(0)",
       width: "100%",
       height: "100%",
       maxWidth: "100vw",
       maxHeight: "100vh",
       objectFit: "contain",
+      willChange: "transform", // Optimize compositing
     },
   };
 
@@ -98,15 +98,15 @@ export default function FaceMesh() {
         face.keypoints.forEach((point: any, i: number) => {
           const size = 2 + Math.sin(now / 500 + i * 0.1);
 
-          if (i < face.keypoints.length - 1) {
-            const nextPoint = face.keypoints[i + 1];
-            linePath.moveTo(point.x, point.y);
-            linePath.lineTo(nextPoint.x, nextPoint.y);
-          }
+          // if (i < face.keypoints.length - 1) {
+          //   const nextPoint = face.keypoints[i + 1];
+          //   linePath.moveTo(point.x, point.y);
+          //   linePath.lineTo(nextPoint.x, nextPoint.y);
+          // }
 
-          // Add glow effects
-          glowPath.moveTo(point.x + size * 3, point.y);
-          glowPath.arc(point.x, point.y, size * 3, 0, Math.PI * 2);
+          // // Add glow effects
+          // glowPath.moveTo(point.x + size * 3, point.y);
+          // glowPath.arc(point.x, point.y, size * 3, 0, Math.PI * 2);
 
           // Add points
           pointsPath.moveTo(point.x + size, point.y);
