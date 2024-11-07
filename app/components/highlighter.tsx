@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect, useCallback } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import MousePosition from "@/app/components/UI/utils/mouse-position";
 
 type HighlighterProps = {
@@ -18,13 +18,14 @@ export default function Highlighter({
   const mousePosition = MousePosition();
   const mouse = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
   const containerSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
-  const [boxes, setBoxes] = useState<Array<HTMLElement>>([]);
+  const boxesRef = useRef<Array<HTMLElement>>([]);
 
   useEffect(() => {
-    containerRef.current &&
-      setBoxes(
-        Array.from(containerRef.current.children).map((el) => el as HTMLElement)
+    if (containerRef.current) {
+      boxesRef.current = Array.from(containerRef.current.children).map(
+        (el) => el as HTMLElement
       );
+    }
   }, []);
 
   useEffect(() => {
@@ -34,31 +35,32 @@ export default function Highlighter({
     return () => {
       window.removeEventListener("resize", initContainer);
     };
-  }, [setBoxes]);
-  const onMouseMove = useCallback(() => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const { w, h } = containerSize.current;
-      const x = mousePosition.x - rect.left;
-      const y = mousePosition.y - rect.top;
-      const inside = x < w && x > 0 && y < h && y > 0;
-      if (inside) {
-        mouse.current.x = x;
-        mouse.current.y = y;
-        boxes.forEach((box) => {
-          const boxX =
-            -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
-          const boxY =
-            -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
-          box.style.setProperty("--mouse-x", `${boxX}px`);
-          box.style.setProperty("--mouse-y", `${boxY}px`);
-        });
-      }
-    }
-  }, [mousePosition.x, mousePosition.y, boxes]);
+  }, []);
+
   useEffect(() => {
+    const onMouseMove = () => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        const { w, h } = containerSize.current;
+        const x = mousePosition.x - rect.left;
+        const y = mousePosition.y - rect.top;
+        const inside = x < w && x > 0 && y < h && y > 0;
+        if (inside) {
+          mouse.current.x = x;
+          mouse.current.y = y;
+          boxesRef.current.forEach((box) => {
+            const boxX =
+              -(box.getBoundingClientRect().left - rect.left) + mouse.current.x;
+            const boxY =
+              -(box.getBoundingClientRect().top - rect.top) + mouse.current.y;
+            box.style.setProperty("--mouse-x", `${boxX}px`);
+            box.style.setProperty("--mouse-y", `${boxY}px`);
+          });
+        }
+      }
+    };
     onMouseMove();
-  }, [mousePosition, onMouseMove]);
+  }, [mousePosition]);
 
   useEffect(() => {
     initContainer();

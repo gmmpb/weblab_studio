@@ -3,7 +3,7 @@ import ml5 from "ml5";
 
 export default function FaceMesh() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const animationFrameRef = useRef<number>();
   const [faceMeshModel, setFaceMeshModel] = useState<any>(null);
   const facesRef = useRef<any[]>([]); // Use ref instead of state
@@ -16,7 +16,7 @@ export default function FaceMesh() {
   const FRAME_DURATION = 1000 / FPS_LIMIT;
 
   // Cache canvas dimensions
-  const dimensions = useMemo(() => ({ width: 640, height: 480 }), []);
+  const dimensions = useMemo(() => ({ width: 1024, height: 768 }), []);
   const styles = {
     container: {
       position: "fixed" as const,
@@ -53,7 +53,7 @@ export default function FaceMesh() {
     const now = performance.now();
     const elapsed = now - lastDrawTime.current;
 
-    if (elapsed < FRAME_DURATION) {
+    if (elapsed < 1000 / 30) {
       animationFrameRef.current = requestAnimationFrame(draw);
       return;
     }
@@ -66,7 +66,7 @@ export default function FaceMesh() {
 
     if (!ctx || !videoRef.current) return;
 
-    lastDrawTime.current = now - (elapsed % FRAME_DURATION);
+    lastDrawTime.current = now - (elapsed % (1000 / 30));
 
     // Clear with transparent background
     ctx.clearRect(0, 0, dimensions.width, dimensions.height);
@@ -101,14 +101,14 @@ export default function FaceMesh() {
           pointsPath.arc(point.x, point.y, size, 0, Math.PI * 2);
         });
 
-        // Draw lines with neon green effect
-        ctx.strokeStyle = "rgba(57, 255, 20, 0.6)";
-        ctx.lineWidth = 1;
-        ctx.stroke(linePath);
+        // // Draw lines with neon green effect
+        // ctx.strokeStyle = "rgba(57, 255, 20, 0.6)";
+        // ctx.lineWidth = 1;
+        // ctx.stroke(linePath);
 
-        // Draw glows
-        ctx.fillStyle = "rgba(57, 255, 20, 0.2)";
-        ctx.fill(glowPath);
+        // // Draw glows
+        // ctx.fillStyle = "rgba(57, 255, 20, 0.2)";
+        // ctx.fill(glowPath);
 
         // Draw points
         ctx.fillStyle = "rgba(57, 255, 20, 0.8)";
@@ -119,8 +119,7 @@ export default function FaceMesh() {
     }
 
     animationFrameRef.current = requestAnimationFrame(draw);
-  }, [dimensions, FRAME_DURATION]);
-
+  }, [dimensions]);
   const startCamera = useCallback(() => {
     if (!navigator.mediaDevices?.getUserMedia) {
       setError("Camera not supported");
@@ -129,7 +128,7 @@ export default function FaceMesh() {
 
     const video = document.createElement("video");
     Object.assign(video, dimensions, { autoplay: true });
-    videoRef.current!.srcObject = video.srcObject;
+    videoRef.current = video;
 
     navigator.mediaDevices
       .getUserMedia({
@@ -162,13 +161,9 @@ export default function FaceMesh() {
 
   useEffect(() => {
     startCamera();
-
-    // Store ref in variable for cleanup
-    const videoElement = videoRef.current;
-
     return () => {
-      if (videoElement?.srcObject) {
-        (videoElement.srcObject as MediaStream)
+      if (videoRef.current?.srcObject) {
+        (videoRef.current.srcObject as MediaStream)
           .getTracks()
           .forEach((track) => track.stop());
       }
