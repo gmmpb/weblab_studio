@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@tensorflow-models/depth-estimation": "^0.0.4",
-    "@tensorflow/tfjs": "^4.20.0",
     "@tensorflow/tfjs-backend-wasm": "^4.20.0",
     "axios": "^1.7.3",
     "dotenv": "^16.4.5",

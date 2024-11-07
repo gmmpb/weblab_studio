@@ -17,6 +17,7 @@ export default function FaceMesh() {
 
   // Cache canvas dimensions
   const dimensions = useMemo(() => ({ width: 1024, height: 768 }), []);
+  // 2. Update the styles object to include explicit background properties
   const styles = {
     container: {
       position: "fixed" as const,
@@ -27,6 +28,9 @@ export default function FaceMesh() {
     },
     canvas: {
       background: "transparent",
+      WebkitBackgroundClip: "padding-box", // Add for mobile Safari
+      backgroundClip: "padding-box",
+      backgroundColor: "rgba(0,0,0,0)", // Explicit transparent background
     },
   };
 
@@ -190,7 +194,12 @@ export default function FaceMesh() {
         ref={canvasRef}
         width={dimensions.width}
         height={dimensions.height}
-        style={styles.canvas}
+        style={{
+          ...styles.canvas,
+          backgroundColor: "rgba(0,0,0,0)",
+          WebkitBackfaceVisibility: "hidden",
+          backfaceVisibility: "hidden",
+        }}
       />
     </div>
   );
